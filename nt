@@ -6,7 +6,6 @@
 PWD_VALUE=$PWD
 
 function newTerm() {
-
    osascript &>/dev/null <<EOF
       tell application "iTerm"
       activate
