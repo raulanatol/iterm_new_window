@@ -1,0 +1,22 @@
+#! /usr/bin/env bash
+
+# OSX only
+[ `uname -s` != "Darwin" ] && return
+
+PWD_VALUE=$PWD
+
+function newTerm() {
+
+   osascript &>/dev/null <<EOF
+      tell application "iTerm"
+      activate
+      set newWindow to (create window with default profile)
+      tell current session of newWindow
+        delay 1
+        write text "cd $PWD_VALUE; clear"
+      end tell
+    end tell
+EOF
+}
+
+newTerm
